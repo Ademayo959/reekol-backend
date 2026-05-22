@@ -1,0 +1,23 @@
+Users
+{ name, email, password }
+
+POST /users/register
+PUT /users/:id
+DELETE /users/:id
+
+
+Tutors
+{ userId: ref Users, level, department, bio, courses[], rating, profilePicture }
+
+POST /tutors
+GET /tutors
+PUT /tutors/:id
+DELETE /tutors/:id
+
+
+Tutorials
+{ title, tutor, course, date, time, host, location, fee }
+
+POST /tutorials
+GET /tutorials
+DELETE /tutorials/:id
