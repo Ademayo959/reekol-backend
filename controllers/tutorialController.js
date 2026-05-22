@@ -3,10 +3,11 @@ const Tutorial = require("../models/tutorialModel")
 
 async function getTutorial(req, res) {
     try {
-        const tutorials = Tutorial.find();
+        const tutorials = await Tutorial.find();
         res.json(tutorials)
     } catch (err) {
-      console.log("Error detected:", err)   
+      console.log("Error detected:", err)
+      res.status(500).json({ message: "Server error" })   
     }
 }
 
@@ -32,6 +33,7 @@ async function createTutorial(req, res) {
         res.json(savedTutorial)
     } catch (err) {
         console.log(err)
+        res.status(500).json({ message: "Server error" })
     }
 }
 
@@ -40,7 +42,7 @@ async function deleteTutorial(req, res) {
         const exactTutorial = await Tutorial.findById(req.params.id)
     //checking to see if this tutorial exists
     if (!exactTutorial) {
-        res.status(401).json({"message": "Tutorial doesn't exist"})
+        res.status(404).json({"message": "Tutorial doesn't exist"})
     }
     //checking to see if this tutorial was created by the user
     if (exactTutorial.createdBy == req.user.id) {
@@ -51,6 +53,7 @@ async function deleteTutorial(req, res) {
     }
     } catch (err) {
         console.log(err)
+        res.status(500).json({ message: "Server error" })
     }
 }
 

@@ -13,8 +13,9 @@ app.use('/user', userRoute)
 app.use('/tutor', tutorRoute)
 app.use('/tutorials', tutorialRoute)
 
+connectDB()
 
 app.listen(port, () => {
     console.log(`server started on port: ${port}`)
-    connectDB()
+    
 })

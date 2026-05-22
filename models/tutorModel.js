@@ -8,8 +8,7 @@ const tutorSchema = new mongoose.Schema({
     bio: { type: String, required: true },
     courses: [String],
     rating: { type: Number, default: 0 },
-    profilePicture: { type: String },
-    createdBy: {type: mongoose.Schema.Types.ObjectId, ref: "User", required: true}
+    profilePicture: { type: String }
 })
 
 const Tutor = mongoose.model("Tutor", tutorSchema);
