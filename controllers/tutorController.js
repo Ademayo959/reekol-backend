@@ -43,7 +43,7 @@ async function updateTutor(req, res) {
         }
         //checking to see if this user created this tutor profile
         if (exactTutor.userId.toString() == req.user.id) {
-            const updatedTutor = await Tutor.findByIdAndUpdate(req.params.id, req.body, { new: true })
+            const updatedTutor = await Tutor.findByIdAndUpdate(req.params.id, req.body, { returnDocument: 'after' })
             res.status(200).json({message: "Tutor Profile", updatedTutor})
         } else {
             res.status(403).json({ "message": "Not Allowed: You didn't create this Tutor profile 🙂"})

@@ -12,7 +12,7 @@ const tutorialSchema = new mongoose.Schema({
     location: { type: String, required: true },
     fee: { type: String, required: true },
     createdBy: {type: mongoose.Schema.Types.ObjectId, ref: "User", required: true}
-})
+}, { timestamps: true })
 
 const Tutorial = mongoose.model("Tutorial", tutorialSchema);
 

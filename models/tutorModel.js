@@ -9,7 +9,7 @@ const tutorSchema = new mongoose.Schema({
     courses: [String],
     rating: { type: Number, default: 0 },
     profilePicture: { type: String }
-})
+}, { timestamps: true })
 
 const Tutor = mongoose.model("Tutor", tutorSchema);
 
