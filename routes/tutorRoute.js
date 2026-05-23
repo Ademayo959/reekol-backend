@@ -1,6 +1,6 @@
 const express = require("express")
 const protect = require("../middlewares/authMiddleware")
-const { getTutor, createTutor, updateTutor, deleteTutor } = require()
+const { getTutor, createTutor, updateTutor, deleteTutor } = require("../controllers/tutorController")
 
 const router = express.Router();
 
