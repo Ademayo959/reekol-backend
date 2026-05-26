@@ -5,8 +5,13 @@ const userRoute = require("./routes/userRoute")
 const tutorRoute = require("./routes/tutorRoute")
 const tutorialRoute = require("./routes/tutorialRoute")
 const { connectDB } = require("./config/db")
+const cors = require('cors')
 
 const app = express()
+
+app.use(cors({
+   origin: "https://reekol.vercel.app"
+}))
 
 app.use(express.json())
 app.use('/user', userRoute)
