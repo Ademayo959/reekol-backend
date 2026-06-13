@@ -48,6 +48,7 @@ async function loginUser(req, res) {
         const token = jwt.sign({ id: userExists._id }, process.env.JWT_SECRET, { expiresIn: '12h' })
         res.json({
             name: userExists.name,
+            email: userExists.email,
             JWTtoken: token
         })
     } catch (err) {
